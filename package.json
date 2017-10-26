@@ -1,0 +1,24 @@
+{
+  "name": "cardinalscoutapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team4159/CardinalScoutApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team4159/CardinalScoutApp/issues"
+  },
+  "homepage": "https://github.com/Team4159/CardinalScoutApp#readme",
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  }
+}
