@@ -2,9 +2,13 @@
   "name": "cardinalscoutapp",
   "version": "1.0.0",
   "description": "",
-  "main": "background.js",
+  "main": "main.js",
   "scripts": {
-    "test": "./node_modules/.bin/eslint ./src"
+    "test": "react-scripts test --env=jsdom",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "electron": "electron ."
   },
   "repository": {
     "type": "git",
@@ -23,7 +27,9 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "electron": "^1.7.9",
     "eslint": "^4.9.0",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "react-scripts": "^1.0.14"
   }
 }
