@@ -21,7 +21,6 @@ const Auton = () => (
             <button> - </button>
             <form >manual input <input type='text' name='gearInput'></input> </form>
         </div>
-        <button> submit </button>
     </div>
 );
 export default Auton;

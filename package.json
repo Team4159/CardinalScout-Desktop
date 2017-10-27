@@ -2,10 +2,10 @@
   "name": "cardinalscoutapp",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "./public/electron.js",
   "scripts": {
     "test": "react-scripts test --env=jsdom",
-    "start": "react-scripts start",
+    "start": "BROWSER=NONE react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "electron": "electron ."
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "electron": "^1.7.9",
+    "electron-builder": "^19.42.1",
     "eslint": "^4.9.0",
     "eslint-plugin-react": "^7.4.0",
     "react-scripts": "^1.0.14"
