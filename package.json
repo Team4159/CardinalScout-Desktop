@@ -29,6 +29,7 @@
   "devDependencies": {
     "electron": "^1.7.9",
     "electron-builder": "^19.42.1",
+    "electron-devtools-installer": "^2.2.1",
     "eslint": "^4.9.0",
     "eslint-plugin-react": "^7.4.0",
     "react-scripts": "^1.0.14"

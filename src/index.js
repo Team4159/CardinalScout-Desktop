@@ -4,7 +4,7 @@ import Auton from './components/auton';
 import Teleop from './components/teleop';
 import Preform from './components/preform';
 import { Provider } from 'react-redux';
-import createStore from './redux/config/configureStore';
+import configureStore from './redux/config/configureStore';
 const App = () => (
     <div>
         <Preform/>
@@ -12,7 +12,7 @@ const App = () => (
         <Teleop/>
     </div>
 );
-const store = createStore();
+const store = configureStore();
 ReactDOM.render(
     <Provider store={store}>
         <App/>
