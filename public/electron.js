@@ -5,7 +5,9 @@ const { default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = req
 let win;
 
 function createWindow () {
-  win = new BrowserWindow({width: 800, height: 600});
+  win = new BrowserWindow({show: false});
+  win.maximize();
+  win.show();
   win.loadURL('http://localhost:3000');
   /*eslint-disable no-console*/
   installExtension(REACT_DEVELOPER_TOOLS)

@@ -1,4 +1,4 @@
-import { SUBMIT_FORM, RESET_DATA, SAVE_EDIT_DATA,CLEAR_STORED_DATA, STASH, SET_UID, EDIT_DATA, RECEIVE_ERROR } from '../config/actionTypes';
+import { SUBMIT_FORM, RESET_DATA, SAVE_EDIT_DATA,CLEAR_STORED_DATA, STASH, SET_UID, EDIT_DATA, SAVE_STATE } from '../config/actionTypes';
 import storedData from './storedDataReducer';
 import temporaryData from './temporaryDataReducer';
 
@@ -20,6 +20,10 @@ const  rootReducer = (state = initialState, action) => {
   case EDIT_DATA:
     return Object.assign({}, state,
       {temporaryData: temporaryData(state.temporaryData, action, state.storedData.stash)});
+  case SAVE_STATE:{
+    localStorage.myAppState = JSON.stringify(state);
+    return state;
+  }
   default:
     return state;
 

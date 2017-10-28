@@ -1,5 +1,5 @@
 import * as a from '../config/actionTypes';
-import v4 from 'uuid/v4';
+import short from 'short-uuid';
 export const submit = (data) => {
   return {
     type: a.SUBMIT_FORM,
@@ -19,7 +19,7 @@ export const resetStoredData= () => {
 export const stash= () => {
   return {
     type: a.STASH,
-    id: v4()
+    id: short().new()
   };
 };
 export const setUID = (uid) => {
@@ -28,11 +28,11 @@ export const setUID = (uid) => {
     uid
   };
 };
-export const editData = (newData, id) => {
+export const editData = (id, newData) => {
   return{
     type: a.EDIT_DATA,
-    newData,
-    id
+    id,
+    newData
   };
 };
 
@@ -41,3 +41,6 @@ export const saveEditData = () => {
     type: a.SAVE_EDIT_DATA,
   };
 };
+export const saveState = () => ({
+  type: a.SAVE_STATE
+});

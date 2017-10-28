@@ -8,3 +8,4 @@ export const EDIT_DATA = 'EDIT_DATA';
 export const CLEAR_STORED_DATA = 'CLEAR_STORED_DATA';
 export const SET_UID = 'SET_UID';
 export const SAVE_EDIT_DATA = 'SAVE_EDIT_DATA';
+export const SAVE_STATE = 'SAVE_STATE';
