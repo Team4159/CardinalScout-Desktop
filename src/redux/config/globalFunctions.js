@@ -7,7 +7,25 @@ export const display = (d, ch) => {
   }
   return str;
 };
-  
+export const csvToObject = (csv) => {
+  var values = csv.split(',');
+  var keys = ['uid', 'match', 'team', 'autonGears', 
+    'autonBallsLow', 'autonBallsHigh', 'cross', 'teleopGears', 
+    'teleopBallsHigh', 'teleopBallsLow', 'reachTouchPad', 'climb', 
+    'robotDeadTime', 'comments'];
+  var o = {};
+  keys.forEach((key, index) => {
+    o = Object.assign({}, o, { [ key]: values[index]});
+  });
+  return o;
+};
+export const formatData = (dataArray, uid) => {
+  var s = '';
+  dataArray.forEach((e) => {
+    s += csv(e.data, uid, ',') + '\n';
+  });
+  return s;
+};
 export const dataToRender = (d, id) =>{
   const renderData = d.find((value) =>{
     return value.id === id;

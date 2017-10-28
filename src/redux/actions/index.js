@@ -44,3 +44,11 @@ export const saveEditData = () => {
 export const saveState = () => ({
   type: a.SAVE_STATE
 });
+export const saveImportedData = (b) => {
+  return {
+    type: a.SAVE_IMPORTED_DATA,
+    dataArray :b.map((e) => (
+      {id: short().new(), data: e}
+    ))
+  };
+};

@@ -1,34 +1,40 @@
 import React from 'react';
-import { csv } from '../redux/config/globalFunctions';
+import { formatData, csvToObject } from '../redux/config/globalFunctions';
 const { dialog } = window.require('electron').remote;
 const fs = window.require('electron').remote.require('fs');
 
-const ImportExport = ({ storedData, uid }) => (
+const ImportExport = ({ storedData, uid, saveImportedData }) => (
   <div>
     <h1> Import file, Export file </h1>
-    <button> import </button>
+    <button  onClick={() => {readFile(saveImportedData);}} > import </button>
     <button onClick={() => writeFile(formatData(storedData, uid) )} > export </button> <br/>
     <text> {formatData(storedData, uid) } </text>
   </div>
 );
-const formatData = (dataArray, uid) => {
-  var s = '';
-  dataArray.forEach((e) => {
-    s += csv(e.data, uid, ',') + '\n';
-  });
-  return s;
+const readFile = (f) => {
+  dialog.showOpenDialog((fileNames) => {
+    if(fileNames === undefined){
+      alert('you didn\' select any files to open');
+      return;
+    }
+    var a = fs.readFileSync(fileNames[0], 'utf8').split('\n');
+    var b = a.filter((e) => (e !== ''));
+    var c = b.map((e) => csvToObject(e));
+    f(c);
+  } );
 };
 const writeFile = (content) => {
-  dialog.showSaveDialog((fileName) => {
-    if(fileName === undefined){
+  dialog.showSaveDialog((file) => {
+    if(file === undefined){
       alert('you didn\' save the file');
       return;
     }
+    const fileName = file+ '.csv';
     fs.writeFile(fileName, content, (err) =>{
       if(err){
         alert('error error!' + err.message);
       }
-      alert('the file has successfully been saved')
+      alert('the file has successfully been saved');
     });
   });
 };

@@ -1,4 +1,4 @@
-import { STASH, SET_UID, SAVE_EDIT_DATA, CLEAR_STORED_DATA } from '../config/actionTypes';
+import { STASH, SET_UID, SAVE_EDIT_DATA, CLEAR_STORED_DATA, SAVE_IMPORTED_DATA } from '../config/actionTypes';
 
 function editData(state, action, data){
   switch(action.type){
@@ -29,6 +29,13 @@ function storedData(state={stash: [], uid: ''}, action, data){
     return Object.assign({}, state, {
       storedData: {stash: [], uid: ''}
     });
+  case SAVE_IMPORTED_DATA: 
+    return Object.assign({}, state,{
+      stash: [ ...state.stash, ...action.dataArray.filter((data, index) => {
+        return state.stash[index] ? (data.team !== state.stash[index].team
+           && data.match !== state.stash[index].match) : true;
+      })]
+    }) ;
   default:
     return state;
   }
