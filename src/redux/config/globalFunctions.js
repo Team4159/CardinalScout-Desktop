@@ -21,6 +21,6 @@ export const csv = (d, uid, ch) => {
   for(var i = 0; i < data.length; i++){
     str += data[i] + ch;
   }
-  str = str.replace(/\s+/g, '');
+  //str = str.replace(/\s+/g, '');
   return str;
 };
