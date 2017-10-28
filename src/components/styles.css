@@ -1,3 +1,4 @@
 .row{
-    display: grid;
+    flex-direction: row;
+    flex-wrap: nowrap
 }
