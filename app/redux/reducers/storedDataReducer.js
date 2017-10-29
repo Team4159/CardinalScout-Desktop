@@ -25,17 +25,15 @@ function storedData(state={stash: [], uid: ''}, action, data){
     return Object.assign({}, state,
       {stash: state.stash.map(stashItem => editData(stashItem, action, data.editData))});
   }
-  case CLEAR_STORED_DATA:
+  case CLEAR_STORED_DATA:{
+    localStorage.myAppState = '';
     return Object.assign({}, state, {
       storedData: {stash: [], uid: ''}
-    });
+    }); }
   case SAVE_IMPORTED_DATA: 
     return Object.assign({}, state,{
-      stash: [ ...state.stash, ...action.dataArray.filter((data, index) => {
-        return state.stash[index] ? (data.team !== state.stash[index].team
-           && data.match !== state.stash[index].match) : true;
-      })]
-    }) ;
+      stash: [ ...state.stash, ...action.dataArray]
+    });
   default:
     return state;
   }
