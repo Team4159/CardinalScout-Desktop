@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import configureStore from './redux/config/configureStore';
 const { remote } = window.require('electron');
 
-const App = () => (
+const Appa = () => (
   <div>
     <Preform/>
     <Auton/>
@@ -18,12 +18,16 @@ const App = () => (
     <ImportExport/>
   </div>
 );
-const store = configureStore(JSON.parse(localStorage.myAppState));
-ReactDOM.render(
+const App = () => (
   <Provider store={store}>
-    <App/>
+    <Appa/>
   </Provider>
-  , document.getElementById('root'));
+);
+const store = configureStore();
+const rootElement = document.querySelector(document.currentScript.getAttribute('data-container'));
+ReactDOM.render(
+  <App/>
+  , rootElement);
 
 remote.getCurrentWindow().on('close', () => {
   const state = store.getState();
