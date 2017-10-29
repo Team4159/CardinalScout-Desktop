@@ -9,20 +9,20 @@ export const display = (d, ch) => {
 };
 export const csvToObject = (csv) => {
   var values = csv.split(',');
-  var keys = ['uid', 'match', 'team', 'autonGears', 
+  var keys = ['match', 'team', 'autonGears', 
     'autonBallsLow', 'autonBallsHigh', 'cross', 'teleopGears', 
     'teleopBallsHigh', 'teleopBallsLow', 'reachTouchPad', 'climb', 
-    'robotDeadTime', 'comments'];
+    'robotDeadTime', 'comments', 'uid'];
   var o = {};
   keys.forEach((key, index) => {
     o = Object.assign({}, o, { [ key]: values[index]});
   });
   return o;
 };
-export const formatData = (dataArray, uid) => {
+export const formatData = (dataArray) => {
   var s = '';
   dataArray.forEach((e) => {
-    s += csv(e.data, uid, ',') + '\n';
+    s += csv(e.data, ',') + '\n';
   });
   return s;
 };
@@ -33,9 +33,9 @@ export const dataToRender = (d, id) =>{
   return renderData;
 };
   
-export const csv = (d, uid, ch) => {
+export const csv = (d, ch) => {
   var data = Object.values(d);
-  var str = uid + ',';
+  var str = '';
   for(var i = 0; i < data.length; i++){
     str += data[i] + ch;
   }

@@ -3,12 +3,11 @@ import { formatData, csvToObject } from '../redux/config/globalFunctions';
 const { dialog } = window.require('electron').remote;
 const fs = window.require('electron').remote.require('fs');
 
-const ImportExport = ({ storedData, uid, saveImportedData }) => (
+const ImportExport = ({ storedData, saveImportedData }) => (
   <div>
     <h1> Import file, Export file </h1>
     <button  onClick={() => {readFile(saveImportedData);}} > import </button>
-    <button onClick={() => writeFile(formatData(storedData, uid) )} > export </button> <br/>
-    <text> {formatData(storedData, uid) } </text>
+    <button onClick={() => writeFile(formatData(storedData) )} > export </button> <br/>
   </div>
 );
 const readFile = (f) => {

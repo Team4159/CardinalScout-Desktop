@@ -18,7 +18,12 @@ const App = () => (
     <ImportExport/>
   </div>
 );
-const store = configureStore(JSON.parse(localStorage.myAppState));
+let store;
+if(localStorage.myAppState){
+  store = configureStore(JSON.parse(localStorage.myAppState));
+}else{
+  store = configureStore();
+}
 const rootElement = document.querySelector(document.currentScript.getAttribute('data-container'));
 ReactDOM.render(
   <Provider store={store}>

@@ -14,7 +14,7 @@ function editData(state, action, data){
 function storedData(state={stash: [], uid: ''}, action, data){
   switch(action.type){
   case STASH:{
-    var obj = {id: action.id, data: data.matchScoutData};
+    var obj = {id: action.id, data: {...data.matchScoutData, uid: state.uid }};
     var ds = [...state.stash, obj];
     return Object.assign({}, state, {stash: ds});
   }
