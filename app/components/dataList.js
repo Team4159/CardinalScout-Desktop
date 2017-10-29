@@ -1,22 +1,5 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-// const exampleData =  {
-//   id: 123,
-//   data: {
-//     match: '50',
-//     team: '4159',
-//     autonGears: 1,
-//     autonBallsLow: 50,
-//     autonBallsHigh : 0,
-//     cross: 'T',
-//     teleopGears: 5,
-//     teleopBallsHigh: 0,
-//     teleopBallsLow: 100,
-//     reachTouchPad: 'T',
-//     climb: 'F',
-//     robotDeadTime: 0,
-//     comments: '',
-//   }};
 const DataList = ({ data, editData, onSubmit, dataList }) => (
   <div>
     <select size={dataList.length} value={data.id}>

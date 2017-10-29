@@ -28,8 +28,9 @@ const Teleop = ({ gears, highBalls, lowBalls, onChange, submit, robotDeadTime, c
         if(!isNaN(t.target.value)) onChange('teleopBallsLow', t.target.value);}}></input> </form>
     </div>
     <form> 
-      robot dead time: <input type='text' onChange={(t) => {if(!NaN(t.target.value)) onChange('robotDeadTime', t.target.value); }}
-        value={robotDeadTime} />
+      robot dead time: <input type='text' onChange={(t) => { if(!isNaN(t.target.value)) 
+        onChange('robotDeadTime', t.target.value);}}
+      value={robotDeadTime} />
     </form>
     <form> 
         attempt climb?: yes: <input type='radio' name='a-climb' value='T' 
