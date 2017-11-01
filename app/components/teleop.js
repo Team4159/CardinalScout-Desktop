@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 const Teleop = ({ gears, highBalls, lowBalls, onChange, submit, robotDeadTime, climb, reachTouchPad, comments }) => (
   <div>
     <h1>Teleoperated Scouting</h1>

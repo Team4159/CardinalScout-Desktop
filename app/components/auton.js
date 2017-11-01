@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 
 
 const Auton = ({ gears, lowBalls, highBalls, onChange, cross }) => (

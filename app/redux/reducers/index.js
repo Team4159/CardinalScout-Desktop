@@ -10,7 +10,6 @@ const  rootReducer = (state = initialState, action) => {
   switch (action.type) {
   case SAVE_EDIT_DATA:
   case SET_UID:
-  case CLEAR_STORED_DATA:
   case SAVE_IMPORTED_DATA:
   case STASH:{
     return Object.assign({}, state,
@@ -25,6 +24,10 @@ const  rootReducer = (state = initialState, action) => {
     localStorage.myAppState = JSON.stringify(state);
     return state;
   }
+  case CLEAR_STORED_DATA:{
+    localStorage.myAppState = '';
+    return initialState;
+  }  
   default:
     return state;
 

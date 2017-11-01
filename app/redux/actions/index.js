@@ -11,7 +11,7 @@ export const resetData= () => {
     type: a.RESET_DATA,
   };
 };
-export const resetStoredData= () => {
+export const clearStoredData= () => {
   return{
     type: a.CLEAR_STORED_DATA
   };

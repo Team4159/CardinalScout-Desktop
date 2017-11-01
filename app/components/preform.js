@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles.css';
+import {center} from './styles';
 
 const Preform = ({ matchValue, teamValue, onChangeText, setUID, uid } ) => (
-  <div>
+  <div style={center}>
     <h1> Pre-Match Form </h1>
     <form>  
             uid: <input type='text' 

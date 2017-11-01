@@ -7,10 +7,12 @@ import DataList from './containers/dataListContainer';
 import ImportExport from './containers/import-exportContainer';
 import { Provider } from 'react-redux';
 import configureStore from './redux/config/configureStore';
+import {center} from './components/styles';
+
 const { remote } = window.require('electron');
 
 const App = () => (
-  <div>
+  <div style={center} >
     <Preform/>
     <Auton/>
     <Teleop/>
@@ -26,7 +28,7 @@ if(localStorage.myAppState){
 }
 const rootElement = document.querySelector(document.currentScript.getAttribute('data-container'));
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={store} >
     <App/>
   </Provider>
   , rootElement);
