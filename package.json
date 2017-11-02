@@ -4,7 +4,7 @@
   "description": "cardinalscoutapp",
   "main": "init.js",
   "author": {
-    "name": "thanawat techaumnuaiwit" ,
+    "name": "thanawat techaumnuaiwit",
     "email": "thanatechaumnuaiwit@gmail.com"
   },
   "repository": "https://github.com/jschr/electron-react-redux-boilerplate",
@@ -56,6 +56,8 @@
     "private:clean": "rimraf build"
   },
   "win": {
-    "target": ["portable"]
+    "target": [
+      "portable"
+    ]
   }
 }

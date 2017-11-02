@@ -1,7 +1,9 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import {fnts} from './styles.js';
+import {vista} from './styles.js';
 const DataList = ({ data, editData, onSubmit, dataList }) => (
-  <div>
+  <div style = {fnts}>
     <select size={dataList.length} value={data.id}>
       {
         dataList.map((d) => (
@@ -11,7 +13,7 @@ const DataList = ({ data, editData, onSubmit, dataList }) => (
       }
     </select>
     <ListOfData data={data} editData={(id, k, v) => editData(id, {[ k ]: v }) } />
-    <button onClick={onSubmit} > submit </button>
+    <button onClick={onSubmit} style = {vista}> submit </button>
   </div> 
 );
 DataList.propTypes = {

@@ -1,14 +1,16 @@
 import React from 'react';
 import { formatData, csvToObject } from '../redux/config/globalFunctions';
+import {fnts} from './styles.js';
+import {vista} from './styles.js';
 const { dialog } = window.require('electron').remote;
 const fs = window.require('electron').remote.require('fs');
 
 const ImportExport = ({ storedData, saveImportedData, clearStoredData }) => (
-  <div>
+  <div style = {fnts}>
     <h1> Import file, Export file </h1>
-    <button  onClick={() => {readFile(saveImportedData);}} > import </button>
-    <button onClick={() => writeFile(formatData(storedData) )} > export </button> <br/>
-    <button onClick = { () => clearStoredData() } > reset </button>
+    <button  onClick={() => {readFile(saveImportedData);}} style = {vista}> import </button>
+    <button onClick={() => writeFile(formatData(storedData) )} style = {vista}> export </button> <br/>
+    <button onClick = { () => clearStoredData() } style = {vista}> reset </button>
   </div>
 );
 const readFile = (f) => {
