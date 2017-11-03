@@ -1,4 +1,4 @@
-import { STASH, SET_UID, SAVE_EDIT_DATA, CLEAR_STORED_DATA, SAVE_IMPORTED_DATA } from '../config/actionTypes';
+import { STASH, SET_UID, SAVE_EDIT_DATA, CLEAR_STORED_DATA, SAVE_IMPORTED_DATA, DELETE_DATA } from '../config/actionTypes';
 
 function editData(state, action, data){
   switch(action.type){
@@ -10,6 +10,9 @@ function editData(state, action, data){
   }
   default: return state;
   }
+}
+function deleteData(state, action){
+  return state.filter((d) => (d.id !== action.id ));
 }
 function storedData(state={stash: [], uid: ''}, action, data){
   switch(action.type){
@@ -34,6 +37,8 @@ function storedData(state={stash: [], uid: ''}, action, data){
     return Object.assign({}, state,{
       stash: [ ...state.stash, ...action.dataArray]
     });
+  case DELETE_DATA: 
+    return Object.assign({}, state, {stash: deleteData(state.stash, action) } );
   default:
     return state;
   }

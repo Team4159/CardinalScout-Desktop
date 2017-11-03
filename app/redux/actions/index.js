@@ -52,3 +52,7 @@ export const saveImportedData = (b) => {
     ))
   };
 };
+export const deleteData = (id) => ({
+  type: a.DELETE_DATA,
+  id
+});

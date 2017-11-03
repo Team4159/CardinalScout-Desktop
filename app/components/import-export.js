@@ -10,7 +10,7 @@ const ImportExport = ({ storedData, saveImportedData, clearStoredData }) => (
     <h1> Import file, Export file </h1>
     <button  onClick={() => {readFile(saveImportedData);}} style = {vista}> import </button>
     <button onClick={() => writeFile(formatData(storedData) )} style = {vista}> export </button> <br/>
-    <button onClick = { () => clearStoredData() } style = {vista}> reset </button>
+    <button onClick = { () => {if(confirm('do you want to delete all of your data?')) clearStoredData();} } style = {vista}> reset </button>
   </div>
 );
 const readFile = (f) => {

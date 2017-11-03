@@ -10,3 +10,4 @@ export const SET_UID = 'SET_UID';
 export const SAVE_EDIT_DATA = 'SAVE_EDIT_DATA';
 export const SAVE_STATE = 'SAVE_STATE';
 export const SAVE_IMPORTED_DATA = 'SAVE_IMPORTED_DATA';
+export const DELETE_DATA = 'DELETE_DATA';

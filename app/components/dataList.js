@@ -1,10 +1,11 @@
 import React from 'react';
-import Proptypes from 'prop-types';
 import {fnts} from './styles.js';
 import {vista} from './styles.js';
-const DataList = ({ data, editData, onSubmit, dataList }) => (
+const DataList = ({ data, editData, onSubmit, dataList, deleteData }) => (
   <div style = {fnts}>
-    <select size={dataList.length} value={data.id}>
+    <h1> View/Edit Data </h1>
+    <text> (click the data to view) </text><br/><br/>
+    <select size={dataList.length + 1} value={data.id} >
       {
         dataList.map((d) => (
           <option key={d.id} value={d.id} onClick={() => editData(d.id, undefined)} > 
@@ -12,15 +13,12 @@ const DataList = ({ data, editData, onSubmit, dataList }) => (
         ))
       }
     </select>
-    <ListOfData data={data} editData={(id, k, v) => editData(id, {[ k ]: v }) } />
+    <ListOfData deleteData={deleteData} data={data} editData={(id, k, v) => editData(id, {[ k ]: v }) } />
     <button onClick={onSubmit} style = {vista}> submit </button>
   </div> 
 );
-DataList.propTypes = {
-  dataList: Proptypes.array.isRequired
-};
 
-const ListOfData = ({ data, editData }) =>  (
+const ListOfData = ({ data, editData, deleteData }) =>  (
   <div>
     {
       Object.keys(data.data).map((key) => {
@@ -42,6 +40,7 @@ const ListOfData = ({ data, editData }) =>  (
         );
       })
     }
+    <button onClick={() => {if(confirm('do you want to delete this data?')) deleteData(data.id);}}> delete </button>
   </div>
 );
     
