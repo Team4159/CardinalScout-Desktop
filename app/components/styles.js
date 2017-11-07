@@ -11,5 +11,13 @@ export const fnts = {
 export const vista = {
   background: 'white',
   borderRadius: '7px',
-    
+  height: '40px',
+  width: '40px'
+};
+export const radioOff = {
+  background: 'gray',
+  borderRadius: '7px',
+  height: '40px',
+  width: '40px',
+  color: 'white'
 };

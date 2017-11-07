@@ -1,6 +1,5 @@
 import React from 'react';
 import {fnts} from './styles.js';
-import {vista} from './styles.js';
 const DataList = ({ data, editData, onSubmit, dataList, deleteData }) => (
   <div style = {fnts}>
     <h1> View/Edit Data </h1>
@@ -14,7 +13,7 @@ const DataList = ({ data, editData, onSubmit, dataList, deleteData }) => (
       }
     </select>
     <ListOfData deleteData={deleteData} data={data} editData={(id, k, v) => editData(id, {[ k ]: v }) } />
-    <button onClick={onSubmit} style = {vista}> submit </button>
+    <button onClick={onSubmit} style = {{background: 'white', borderRadius: '7px'}}> submit </button>
   </div> 
 );
 
@@ -32,6 +31,11 @@ const ListOfData = ({ data, editData, deleteData }) =>  (
             </form>
           );
         }
+        if(key === 'uid'){
+          return (
+            <text key={key} > uid: {data.data.uid} </text>
+          );
+        }
         return (
           <form key={key} >
             {key} <input type='text' name={key} value={data.data[key]} 
@@ -40,7 +44,8 @@ const ListOfData = ({ data, editData, deleteData }) =>  (
         );
       })
     }
-    <button onClick={() => {if(confirm('do you want to delete this data?')) deleteData(data.id);}}> delete </button>
+    <br/>
+    <button style = {{background: 'white', borderRadius: '7px'}} onClick={() => {if(confirm('do you want to delete this data?')) deleteData(data.id);}}> delete </button>
   </div>
 );
     

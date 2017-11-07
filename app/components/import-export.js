@@ -8,9 +8,9 @@ const fs = window.require('electron').remote.require('fs');
 const ImportExport = ({ storedData, saveImportedData, clearStoredData }) => (
   <div style = {fnts}>
     <h1> Import file, Export file </h1>
-    <button  onClick={() => {readFile(saveImportedData);}} style = {vista}> import </button>
-    <button onClick={() => writeFile(formatData(storedData) )} style = {vista}> export </button> <br/>
-    <button onClick = { () => {if(confirm('do you want to delete all of your data?')) clearStoredData();} } style = {vista}> reset </button>
+    <button  onClick={() => {readFile(saveImportedData);}} style = {{background: 'white', borderRadius: '7px'}}> import </button>
+    <button onClick={() => writeFile(formatData(storedData) )} style = {{background: 'white', borderRadius: '7px'}}> export </button> <br/>
+    <button onClick = { () => {if(confirm('do you want to delete all of your data?')) clearStoredData();} } style = {{background: 'white', borderRadius: '7px'}}> reset </button>
   </div>
 );
 const readFile = (f) => {
