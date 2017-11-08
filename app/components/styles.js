@@ -3,7 +3,7 @@ export const center = {
   color: 'white'
 };
 export const fnts = {
-  fontFamily: 'Nova Mono'
+  fontFamily: 'Questrial'
 };
 
 //supposed to customize the buttons
@@ -11,13 +11,19 @@ export const fnts = {
 export const vista = {
   background: 'white',
   borderRadius: '7px',
-  height: '40px',
-  width: '40px'
+  height: '30px',
+  width: '30px',
+  fontFamily: 'Questrial'
+  
 };
 export const radioOff = {
   background: 'gray',
   borderRadius: '7px',
-  height: '40px',
-  width: '40px',
+  height: '30px',
+  width: '30px',
   color: 'white'
+
 };
+export const padding = {
+  paddingTop: '5px'
+}

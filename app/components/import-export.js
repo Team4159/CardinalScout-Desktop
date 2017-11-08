@@ -1,16 +1,17 @@
 import React from 'react';
 import { formatData, csvToObject } from '../redux/config/globalFunctions';
 import {fnts} from './styles.js';
-import {vista} from './styles.js';
+import {vista, padding} from './styles.js';
 const { dialog } = window.require('electron').remote;
 const fs = window.require('electron').remote.require('fs');
 
 const ImportExport = ({ storedData, saveImportedData, clearStoredData }) => (
   <div style = {fnts}>
     <h1> Import file, Export file </h1>
-    <button  onClick={() => {readFile(saveImportedData);}} style = {{background: 'white', borderRadius: '7px'}}> import </button>
-    <button onClick={() => writeFile(formatData(storedData) )} style = {{background: 'white', borderRadius: '7px'}}> export </button> <br/>
-    <button onClick = { () => {if(confirm('do you want to delete all of your data?')) clearStoredData();} } style = {{background: 'white', borderRadius: '7px'}}> reset </button>
+    <button  onClick={() => {readFile(saveImportedData);}} style = {{background: 'white', borderRadius: '7px'}}> Import </button>
+    <button onClick={() => writeFile(formatData(storedData) )} style = {{background: 'white', borderRadius: '7px'}}> Export </button> <br/>
+    <div style ={padding}></div>
+    <button onClick = { () => {if(confirm('do you want to delete all of your data?')) clearStoredData();} } style = {{background: 'white', borderRadius: '7px'}}> Reset </button>
   </div>
 );
 const readFile = (f) => {
